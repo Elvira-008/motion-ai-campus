@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion AI Campus — Demo</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-icon">M</div><div><b>Motion AI</b><small>ACADEMY PLATFORM</small></div></div>
+    <div class="nav-label">ПЛАТФОРМА</div>
+    <button class="nav active" data-target="overview">▦ <span>Обзор</span></button>
+    <button class="nav" data-target="student">✦ <span>AI-помощник</span></button>
+    <button class="nav" data-target="tasks">⌘ <span>Генератор задач</span></button>
+    <button class="nav" data-target="manager">▤ <span>Дела студентов</span></button>
+    <div class="sidebar-bottom"><div class="avatar">MW</div><div><b>Motion Web</b><small>Демо-аккаунт</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">ACADEMY INTELLIGENCE</span><h1 id="pageTitle">Панель управления</h1></div><div class="top-right"><span class="live-dot"></span> Демо-режим <div class="profile">E</div></div></header>
+    <section id="overview" class="page active-page">
+      <div class="welcome"><div><span class="pill">✦ AI + AUTOMATION</span><h2>Меньше рутины.<br><em>Больше результата.</em></h2><p>Одна платформа для персонального обучения, практических задач и автоматизации работы менеджеров.</p></div><div class="welcome-art"><div class="orb">✦</div><div class="float-card">✧ AI insight <b>Обучение становится персональным</b></div></div></div>
+      <div class="stats"><div class="stat"><span>Студентов в демо</span><strong id="studentCount">3</strong><small>Карточки в системе</small></div><div class="stat"><span>AI-модуля</span><strong>03</strong><small>Единый интерфейс</small></div><div class="stat"><span>Ручных шагов</span><strong class="green">−</strong><small>Автоматизация рутины</small></div></div>
+      <div class="section-head"><div><h3>Три решения — одна система</h3><p>Выберите модуль и покажите сценарий работы</p></div></div>
+      <div class="feature-grid">
+        <button class="feature" data-target="student"><div class="feature-icon purple">✦</div><span class="tag">ДЛЯ СТУДЕНТА</span><h3>Персональный AI-наставник</h3><p>Определяет темы для повторения и рекомендует материалы.</p><b>Открыть модуль <span>↗</span></b></button>
+        <button class="feature" data-target="tasks"><div class="feature-icon blue">⌘</div><span class="tag">ДЛЯ ПРЕПОДАВАТЕЛЯ</span><h3>Генератор Junior-задач</h3><p>Создаёт практические задания по технологиям и требованиям.</p><b>Создать задание <span>↗</span></b></button>
+        <button class="feature" data-target="manager"><div class="feature-icon orange">▤</div><span class="tag">ДЛЯ МЕНЕДЖЕРА</span><h3>Цифровое дело студента</h3><p>Сохраняет данные в карточке вместо повторного заполнения.</p><b>Открыть карточки <span>↗</span></b></button>
+      </div>
+      <div class="notice"><div class="notice-icon">i</div><div><b>Это работающий MVP</b><p>Кнопки взаимодействуют с FastAPI. AI-советы и задания сейчас демонстрационные; подключение настоящей AI-модели и базы данных — следующий этап.</p></div></div>
+    </section>
+    <section id="student" class="page">
+      <div class="intro"><span class="pill">МОДУЛЬ 01 · STUDENT AI</span><h2>Узнай, что нужно повторить</h2><p>Демо анализирует результат по теме и подбирает следующие шаги обучения.</p></div>
+      <div class="two-col">
+        <div class="panel"><h3>Проверка знаний</h3><p class="muted">Выберите студента, тему и условный результат мини-теста.</p>
+          <label>Студент</label><select id="diagStudent"><option value="101">Айжан Осмонова</option><option value="102">Нурбек Асанов</option><option value="103">Мээрим Жумабекова</option></select>
+          <label>Тема</label><select id="diagTopic"><option>ООП</option><option>SQL</option><option>FastAPI</option></select>
+          <div class="label-line"><label>Результат теста</label><b id="scoreLabel">42%</b></div><input id="diagScore" type="range" min="0" max="100" value="42"><div class="range-labels"><span>0% — сложно</span><span>100% — отлично</span></div>
+          <button class="primary" id="diagnoseBtn">✦ Проверить знания</button>
+        </div>
+        <div class="panel result-panel"><div class="result-top"><span class="feature-icon purple">✦</span><span class="tag">AI-РЕКОМЕНДАЦИЯ</span></div><div id="diagResult"><div class="empty-state"><div>✧</div><h3>Здесь появится анализ</h3><p>Нажмите «Проверить знания», чтобы получить персональные рекомендации.</p></div></div></div>
+      </div>
+    </section>
+    <section id="tasks" class="page">
+      <div class="intro"><span class="pill">МОДУЛЬ 02 · TASK GENERATOR</span><h2>Практика как на настоящей работе</h2><p>Выберите стек и уровень — система подготовит задачу, требования и критерии приёмки.</p></div>
+      <div class="two-col">
+        <div class="panel"><h3>Параметры задания</h3><label>Технология</label><select id="taskTech"><option>Python</option><option>FastAPI</option><option>SQL</option><option>Django</option></select><label>Уровень</label><select id="taskLevel"><option>Junior</option><option>Beginner</option><option>Junior+</option></select><label>Тема / рабочий сценарий</label><input id="taskTopic" value="REST API" placeholder="Например, авторизация пользователей"><button class="primary" id="generateBtn">✦ Сгенерировать задание</button></div>
+        <div class="panel" id="taskResult"><div class="empty-state"><div>⌘</div><h3>Задание появится здесь</h3><p>Сгенерируйте вариант для демонстрации.</p></div></div>
+      </div>
+    </section>
+    <section id="manager" class="page">
+      <div class="intro"><span class="pill">МОДУЛЬ 03 · MANAGER AUTOMATION</span><h2>Данные студента — в одной карточке</h2><p>Менеджер вводит информацию один раз, после чего её можно использовать в списке и выгрузке.</p></div>
+      <div class="two-col manager-layout">
+        <div class="panel"><h3>Новая карточка</h3><form id="studentForm"><label>ФИО</label><input id="fullName" required placeholder="Например, Алина Токтосунова"><label>Группа</label><input id="groupName" required placeholder="Python-25"><label>Телефон</label><input id="phone" placeholder="+996 ..."><label>Email</label><input id="email" type="email" placeholder="student@example.com"><label>Направление</label><select id="course"><option>Python Backend</option><option>AI / ML</option><option>Full-Stack</option><option>Cybersecurity</option></select><button class="primary" type="submit">＋ Создать карточку</button></form><div id="managerMessage"></div></div>
+        <div class="panel table-panel"><div class="table-title"><div><h3>Студенты</h3><p class="muted">Данные из демо API</p></div><button class="secondary" id="refreshBtn">↻ Обновить</button></div><div class="table-wrap"><table><thead><tr><th>Студент</th><th>Группа</th><th>Направление</th></tr></thead><tbody id="studentsTable"></tbody></table></div><button class="secondary export-btn" id="exportBtn">⇩ Показать экспорт JSON</button><pre id="exportOutput" hidden></pre></div>
+      </div>
+    </section>
+    <footer>Motion AI Campus <span>·</span> Учебный прототип для демонстрации</footer>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
